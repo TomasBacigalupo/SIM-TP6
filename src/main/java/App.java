@@ -17,7 +17,7 @@ public class App {
         int i = 0;
         while(!room.isEmpty() && i < 200){
 
-            sb.append(room.particles.size()).append("\n\n");
+            sb.append(room.particles.size()+4).append("\n\n");
             sb.append(limits());
             for(int j = 0; j < room.particles.size();j++){
                 sb.append(room.particles.get(j).toOvito()).append("\n");
@@ -43,7 +43,10 @@ public class App {
 
     private static String limits(){
         String ret = "";
-        ret = ModelParams.X_max + " " + ModelParams.Y_max + " 0\n" + "0" + " " + ModelParams.Y_max + " 0\n" + "0 0 0\n" + "0" + " " + ModelParams.Y_max + " 0\n";
+        ret = ModelParams.X_max + " " + ModelParams.Y_max + " 0\n" +
+                ModelParams.X_max + " " + 0 + " 0\n" +
+                "0 0 0\n" +
+                "0" + " " + ModelParams.Y_max + " 0\n";
         return ret;
     }
 
