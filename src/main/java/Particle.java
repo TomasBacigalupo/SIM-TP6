@@ -20,7 +20,7 @@ public class Particle {
 
             //necesito la distancia a p y versor de direccion
 
-            if(this != p){
+            if(!this.equals(p)){
                 Eij = this.position.distance(p.position)-this.radius-p.radius;
                 eij = p.position.nRest(this.position).multScalar(1/this.position.distance(p.position));
                 double forceMod = ModelParams.A * Math.exp(-Eij/ModelParams.B);
@@ -66,6 +66,25 @@ public class Particle {
 
     public String toOvito(){
         return this.position.toString() + " " + this.radius;
+    }
+
+
+    public boolean equals(Particle other){
+        if(this.mass != other.mass){
+            return false;
+        }
+        if(this.radius != other.radius){
+            return false;
+        }
+
+        if(this.position != other.position){
+            return false;
+        }
+        if(this.velocity != other.velocity){
+            return false;
+        }
+        return true;
+
     }
 
 }
