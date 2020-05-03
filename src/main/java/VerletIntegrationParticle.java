@@ -5,7 +5,7 @@ public class VerletIntegrationParticle {
 
         Vector position = p.position;
         Vector velocity = p.velocity;
-        Vector acceleration = p.force.nDiv(p.mass);
+        Vector acceleration = p.fr(particles,target).nDiv(p.mass);
         velocity = velocity.nSum(acceleration.nMult(dt/2));
         position = position.nSum(velocity.nMult(dt));
         acceleration = p.fr(particles,target).nDiv(p.mass);

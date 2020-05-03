@@ -1,5 +1,5 @@
 public class ModelParams {
-    static int N = 200;
+    static int N = 5;
     static double X_max = 20;
     static double Y_max = 20;
     static double door_width = 1.2;

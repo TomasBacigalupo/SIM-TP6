@@ -18,15 +18,16 @@ public class App {
         while(!room.isEmpty() && i < 200){
 
             sb.append(room.particles.size()).append("\n\n");
-            for (Particle p : room.particles) {
-                sb.append(p.toOvito()).append("\n");
-                if(!room.isInTheDoor(p) && room.isOutside(p)){
-                    Particle np = VerletIntegrationParticle.integrate(p,room.particles,ModelParams.dt,ModelParams.target1);
+            for(int j = 0; j < room.particles.size();j++){
+                sb.append(room.particles.get(j).toOvito()).append("\n");
+                if(!room.isInTheDoor(room.particles.get(j)) && !room.isOutside(room.particles.get(j))){
+                    Particle np = VerletIntegrationParticle.integrate(room.particles.get(j),room.particles,ModelParams.dt,ModelParams.target1);
                     nParticles.add(np);
                 }
             }
 
             room.particles = nParticles;
+            nParticles.clear();
             i++;
         }
 
