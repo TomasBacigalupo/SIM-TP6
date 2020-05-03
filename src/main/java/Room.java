@@ -41,7 +41,7 @@ public class Room {
     public boolean isInTheDoor(Particle p){
         double door_left = modelParams.door_pos.x - modelParams.door_width/2;
         double door_right = modelParams.door_pos.x + modelParams.door_width/2;
-        return p.position.x > door_left && p.position.x < door_right;
+        return p.position.x > door_left && p.position.x < door_right && p.position.y == 0;
     }
 
     public boolean isOutside(Particle p){
