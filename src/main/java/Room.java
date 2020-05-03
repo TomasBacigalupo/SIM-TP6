@@ -7,6 +7,8 @@ public class Room {
 
     public List<Particle> particles;
 
+    public int exitedParticles = 0;
+
     public void generateParticles(){
         particles = new ArrayList<>(modelParams.N);
         Random rand = new Random();
@@ -36,4 +38,7 @@ public class Room {
         return false;
     }
 
+    public boolean isEmpty() {
+        return exitedParticles == modelParams.N;
+    }
 }
