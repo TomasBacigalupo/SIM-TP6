@@ -62,6 +62,11 @@ public class Room {
         this.particles = particles;
     }
 
+    public boolean isNearTarget2(Particle p){
+        double nearDouble = 0.5;
+        return (p.position.x + nearDouble >= modelParams.target2.x || p.position.x - nearDouble < modelParams.target2.x) && p.position.y - nearDouble <= modelParams.target2.y;
+    }
+    
     private boolean isOutsideTheBox(Particle p) {
         return p.position.x + p.radius > modelParams.X_max || p.position.x - p.radius < 0 || p.position.y + p.radius > modelParams.Y_max || p.position.y - p.radius < 0;
     }
