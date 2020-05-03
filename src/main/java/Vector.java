@@ -31,7 +31,7 @@ public class Vector {
     }
 
     public Vector nRest(Vector other){
-        return new Vector(other.x-this.x,other.y-this.y);
+        return new Vector(this.x-other.x,this.y-other.y);
     }
 
     public Vector multScalar(double scalar ){
