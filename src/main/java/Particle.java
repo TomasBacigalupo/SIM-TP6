@@ -43,9 +43,10 @@ public class Particle {
     }
 
 
-
-
-
-
-
+    public Particle(Vector position,Vector velocity,double mass,double radius){
+        this.position = position;
+        this.velocity = velocity;
+        this.mass = mass;
+        this.radius = radius;
+    }
 }
