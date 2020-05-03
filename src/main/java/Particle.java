@@ -42,6 +42,12 @@ public class Particle {
 
     }
 
+    public Vector fr(List<Particle> influence, Vector target){
+        Vector fr = this.socialForce(influence);
+        fr.sum(this.drivingForce(target));
+        return fr;
+    }
+
 
     public Particle(Vector position,Vector velocity,double mass,double radius){
         this.position = position;
