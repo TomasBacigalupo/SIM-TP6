@@ -21,8 +21,12 @@ public class App {
             sb.append(limits());
             for(int j = 0; j < room.particles.size();j++){
                 sb.append(room.particles.get(j).toOvito()).append("\n");
-                if(!room.isInTheDoor(room.particles.get(j)) && !room.isOutside(room.particles.get(j))){
+                if(!room.isOutside(room.particles.get(j))){
                     Particle np = VerletIntegrationParticle.integrate(room.particles.get(j),room.particles,ModelParams.dt,ModelParams.target1);
+                    nParticles.add(np);
+                }
+                if(room.isOutside(room.particles.get(j))){ //&& !room.isNearTarget2(room.particles.get(j))){
+                    Particle np = VerletIntegrationParticle.integrate(room.particles.get(j),room.particles,ModelParams.dt,ModelParams.target2);
                     nParticles.add(np);
                 }
             }
