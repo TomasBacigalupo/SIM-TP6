@@ -15,7 +15,7 @@ public class App {
         List<Particle> nParticles = new LinkedList<>();
         StringBuilder sb = new StringBuilder();
         int i = 0;
-        while(!room.isEmpty() && i < 2000){
+        while(!room.isEmpty()){
 
             sb.append(room.particles.size()+4).append("\n\n");
             sb.append(limits());
@@ -25,10 +25,10 @@ public class App {
                     Particle np = VerletIntegrationParticle.integrate(room.particles.get(j),room.particles,ModelParams.dt,ModelParams.target1);
                     nParticles.add(np);
                 }
-                if(room.isOutside(room.particles.get(j))){ //&& !room.isNearTarget2(room.particles.get(j))){
-                    Particle np = VerletIntegrationParticle.integrate(room.particles.get(j),room.particles,ModelParams.dt,ModelParams.target2);
-                    nParticles.add(np);
-                }
+//                if(room.isOutside(room.particles.get(j)) && !room.isNearTarget2(room.particles.get(j))){
+//                    Particle np = VerletIntegrationParticle.integrate(room.particles.get(j),room.particles,ModelParams.dt,ModelParams.target2);
+//                    nParticles.add(np);
+//                }
             }
 
             room.setParticles(new LinkedList<>(nParticles));

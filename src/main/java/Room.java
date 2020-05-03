@@ -46,7 +46,11 @@ public class Room {
     }
 
     public boolean isOutside(Particle p){
-        return p.position.y < 0;
+        if(0 <= p.position.y && p.position.y <= ModelParams.Y_max && 0 <= p.position.x && p.position.x <= ModelParams.X_max){
+            return false;
+        }
+
+        return true;
     }
 
     public boolean isEmpty() {
