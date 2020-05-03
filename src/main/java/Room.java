@@ -43,9 +43,9 @@ public class Room {
         double door_right = modelParams.door_pos.x + modelParams.door_width/2;
         return p.position.x > door_left && p.position.x < door_right;
     }
-    
+
     public boolean isOutside(Particle p){
-        return p.position.x < 0;
+        return p.position.y < 0;
     }
 
     public boolean isEmpty() {

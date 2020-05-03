@@ -13,7 +13,7 @@ public class ModelParams {
     static double vdi = 1;//TODO:ver cuanto vale
     static double tau = 0.5;//s
     static double mass = 1;
-    static Vector target1 = new Vector(0,X_max/2);
-    static Vector target2 = new Vector(-5,X_max/2);
+    static Vector target1 = new Vector(X_max/2,0);
+    static Vector target2 = new Vector(X_max/2,-5);
     static double dt= 1;//s
 }
