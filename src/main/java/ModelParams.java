@@ -10,4 +10,6 @@ public class ModelParams {
     static double v_max = 6;
     static double A = 2000;//N
     static double B = 0.08;//m
+    static double vdi = 1;//TODO:ver cuanto vale
+    static double tau = 0.5;//s
 }
