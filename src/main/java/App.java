@@ -18,6 +18,7 @@ public class App {
         while(!room.isEmpty() && i < 200){
 
             sb.append(room.particles.size()).append("\n\n");
+            sb.append(limits());
             for(int j = 0; j < room.particles.size();j++){
                 sb.append(room.particles.get(j).toOvito()).append("\n");
                 if(!room.isInTheDoor(room.particles.get(j)) && !room.isOutside(room.particles.get(j))){
@@ -40,8 +41,9 @@ public class App {
 
     }
 
-    private String limits(){
+    private static String limits(){
         String ret = "";
+        ret = ModelParams.X_max + " " + ModelParams.Y_max + " 0\n" + "0" + " " + ModelParams.Y_max + " 0\n" + "0 0 0\n" + "0" + " " + ModelParams.Y_max + " 0\n";
         return ret;
     }
 
