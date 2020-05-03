@@ -42,5 +42,14 @@ public class Vector {
         this.x += other.x;
         this.y += other.y;
     }
+
+    public Vector nMult(double scalar) {
+        return new Vector(this.x*scalar,this.y*scalar);
+    }
+    public Vector nSum(Vector v) { return new Vector(this.x + v.x, this.y + v.y);
+    }
+    public Vector nDiv(double scalar) {
+        return new Vector(x / scalar, y / scalar);
+    }
 }
 

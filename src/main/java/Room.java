@@ -11,15 +11,29 @@ public class Room {
         particles = new ArrayList<>(modelParams.N);
         Random rand = new Random();
         for(int i = 0 ; i < modelParams.N ; i++){
-            double randX = rand.nextDouble()*modelParams.X_max;
-            double randY = rand.nextDouble()*modelParams.Y_max;
-            double randV = modelParams.v_min + rand.nextDouble()*(modelParams.v_max - modelParams.v_min);
+            double randX;
+            double randY;
+            Vector position;
             double randR = modelParams.r_min + rand.nextDouble()*(modelParams.r_max - modelParams.r_min);
+            do {
+                randX = rand.nextDouble()*modelParams.X_max;
+                randY = rand.nextDouble()*modelParams.Y_max;
+                position = new Vector(randX,randY);
+            }while(overlaps(new Particle(position,null,0,randR) , particles));
+            double randV = modelParams.v_min + rand.nextDouble()*(modelParams.v_max - modelParams.v_min);
             double alfa = rand.nextDouble();
-            Vector position = new Vector(randX,randY);
             Vector velocity = new Vector(randV*Math.cos(alfa),randV*Math.sin(alfa));
             particles.add(new Particle(position,velocity,modelParams.mass,randR));
         }
+    }
+
+    private boolean overlaps(Particle other,List<Particle> particles) {
+        for(Particle p : particles) {
+            if(p.overlaps(other)) {
+                return true;
+            }
+        }
+        return false;
     }
 
 }
