@@ -64,4 +64,8 @@ public class Particle {
         return dx*dx + dy*dy < dr*dr ;
     }
 
+    public String toOvito(){
+        return this.position.toString() + " " + this.radius;
+    }
+
 }
