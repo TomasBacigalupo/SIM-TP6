@@ -20,14 +20,15 @@ public class App {
             sb.append(room.particles.size()).append("\n\n");
             for(int j = 0; j < room.particles.size();j++){
                 sb.append(room.particles.get(j).toOvito()).append("\n");
-                if(!room.isInTheDoor(room.particles.get(j)) && !room.isOutside(room.particles.get(j))){
+                //if(!room.isInTheDoor(room.particles.get(j)) && !room.isOutside(room.particles.get(j))){
                     Particle np = VerletIntegrationParticle.integrate(room.particles.get(j),room.particles,ModelParams.dt,ModelParams.target1);
                     nParticles.add(np);
-                }
+                //}
             }
 
-            room.particles = nParticles;
+            room.particles = new LinkedList<>(nParticles);
             nParticles.clear();
+
             i++;
         }
 
