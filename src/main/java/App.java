@@ -31,7 +31,7 @@ public class App {
                 }
             }
 
-            room.particles = new LinkedList<>(nParticles);
+            room.setParticles(new LinkedList<>(nParticles));
             nParticles.clear();
 
             i++;

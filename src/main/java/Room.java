@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
 
@@ -50,5 +51,18 @@ public class Room {
 
     public boolean isEmpty() {
         return exitedParticles == modelParams.N;
+    }
+
+    public void setParticles(LinkedList<Particle> particles) {
+        for(Particle p : particles){
+            if(this.isOutsideTheBox(p)){
+                p.velocity = p.velocity.multScalar(-1);
+            }
+        }
+        this.particles = particles;
+    }
+
+    private boolean isOutsideTheBox(Particle p) {
+        return p.position.x + p.radius > modelParams.X_max || p.position.x - p.radius < 0 || p.position.y + p.radius > modelParams.Y_max || p.position.y - p.radius < 0;
     }
 }
