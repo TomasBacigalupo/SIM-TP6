@@ -18,6 +18,7 @@ public class Room {
             double alfa = rand.nextDouble();
             Vector position = new Vector(randX,randY);
             Vector velocity = new Vector(randV*Math.cos(alfa),randV*Math.sin(alfa));
+            particles.add(new Particle(position,velocity,modelParams.mass,randR));
         }
     }
 

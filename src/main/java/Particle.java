@@ -35,4 +35,27 @@ public class Particle {
     public Vector desireForce(Vector taget){
         return new Vector(0,0);
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    public Particle(Vector position,Vector velocity,double mass,double radius){
+        this.position = position;
+        this.velocity = velocity;
+        this.mass = mass;
+        this.radius = radius;
+    }
 }
