@@ -8,7 +8,8 @@ public class Particle {
     double radius;
     double mass;
     Vector position;
-    Vector velocity;
+    Vector velocity = new Vector(0,0);
+    double vdi;
     Vector force;
 
 
@@ -49,9 +50,9 @@ public class Particle {
     }
 
 
-    public Particle(Vector position,Vector velocity,double mass,double radius){
+    public Particle(Vector position,double vdi,double mass,double radius){
         this.position = position;
-        this.velocity = velocity;
+        this.vdi = vdi;
         this.mass = mass;
         this.radius = radius;
     }

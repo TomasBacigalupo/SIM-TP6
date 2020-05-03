@@ -21,11 +21,9 @@ public class Room {
                 randX = rand.nextDouble()*modelParams.X_max;
                 randY = rand.nextDouble()*modelParams.Y_max;
                 position = new Vector(randX,randY);
-            }while(overlaps(new Particle(position,null,0,randR) , particles));
+            }while(overlaps(new Particle(position,0,0,randR) , particles));
             double randV = modelParams.v_min + rand.nextDouble()*(modelParams.v_max - modelParams.v_min);
-            double alfa = rand.nextDouble();
-            Vector velocity = new Vector(randV*Math.cos(alfa),randV*Math.sin(alfa));
-            particles.add(new Particle(position,velocity,modelParams.mass,randR));
+            particles.add(new Particle(position,randV,modelParams.mass,randR));
         }
     }
 
