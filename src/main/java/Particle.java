@@ -24,7 +24,7 @@ public class Particle {
 
             if(!this.equals(p)){
                 Eij = this.position.distance(p.position)-this.radius-p.radius;
-                eij = p.position.nRest(this.position).multScalar(1/this.position.distance(p.position));
+                eij = p.position.nRest(this.position).multScalar(-1/this.position.distance(p.position));
                 double forceMod = ModelParams.A * Math.exp(-Eij/ModelParams.B);
                 Vector forceVector = eij.multScalar(forceMod);
                 force.sum(forceVector);
@@ -38,7 +38,7 @@ public class Particle {
     public Vector drivingForce(Vector target){
 
         //calculo versor
-        Vector ei = this.position.nRest(target).multScalar(1/this.position.distance(target));
+        Vector ei = target.nRest(this.position).multScalar(1/this.position.distance(target));
 
         return  ei.multScalar(this.vdi).nRest(this.velocity).multScalar(this.mass/ModelParams.tau);
 
