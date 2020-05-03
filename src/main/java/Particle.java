@@ -39,7 +39,7 @@ public class Particle {
         //calculo versor
         Vector ei = this.position.nRest(target).multScalar(1/this.position.distance(target));
 
-        return  ei.multScalar(ModelParams.vdi).nRest(this.velocity).multScalar(this.mass/ModelParams.tau);
+        return  ei.multScalar(this.vdi).nRest(this.velocity).multScalar(this.mass/ModelParams.tau);
 
     }
 
