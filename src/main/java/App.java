@@ -15,7 +15,7 @@ public class App {
         List<Particle> nParticles = new LinkedList<>();
         StringBuilder sb = new StringBuilder();
         int i = 0;
-        while(!room.isEmpty()){
+        while(room.particles.size() != 0){
 
             sb.append(room.particles.size()+4).append("\n\n");
             sb.append(limits());
