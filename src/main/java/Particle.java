@@ -58,4 +58,13 @@ public class Particle {
         this.mass = mass;
         this.radius = radius;
     }
+
+
+    public boolean overlaps(Particle other) {
+        double dx = this.position.x - other.position.x;
+        double dy = this.position.y - other.position.y;
+        double dr = this.radius + other.radius;
+        return dx*dx + dy*dy < dr*dr ;
+    }
+
 }
