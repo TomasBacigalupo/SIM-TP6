@@ -5,6 +5,7 @@ import java.util.List;
 
 public class Particle {
 
+    int id;
     double radius;
     double mass;
     Vector position;
@@ -50,7 +51,8 @@ public class Particle {
     }
 
 
-    public Particle(Vector position,double vdi,double mass,double radius){
+    public Particle(int id,Vector position,double vdi,double mass,double radius){
+        this.id = id;
         this.position = position;
         this.vdi = vdi;
         this.mass = mass;
@@ -71,21 +73,7 @@ public class Particle {
 
 
     public boolean equals(Particle other){
-        if(this.mass != other.mass){
-            return false;
-        }
-        if(this.radius != other.radius){
-            return false;
-        }
-
-        if(this.position != other.position){
-            return false;
-        }
-        if(this.velocity != other.velocity){
-            return false;
-        }
-        return true;
-
+        return this.id == other.id;
     }
 
 }

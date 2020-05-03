@@ -11,6 +11,6 @@ public class VerletIntegrationParticle {
         acceleration = p.fr(particles,target).nDiv(p.mass);
         velocity = velocity.nSum(acceleration.nMult(dt/2));
 
-        return new Particle(position,p.vdi,p.mass,p.radius);
+        return new Particle(p.id,position,p.vdi,p.mass,p.radius);
     }
 }

@@ -10,6 +10,7 @@ public class Room {
     public int exitedParticles = 0;
 
     public void generateParticles(){
+        int id = 0;
         particles = new ArrayList<>(modelParams.N);
         Random rand = new Random();
         for(int i = 0 ; i < modelParams.N ; i++){
@@ -21,9 +22,10 @@ public class Room {
                 randX = rand.nextDouble()*modelParams.X_max;
                 randY = rand.nextDouble()*modelParams.Y_max;
                 position = new Vector(randX,randY);
-            }while(overlaps(new Particle(position,0,0,randR) , particles));
+            }while(overlaps(new Particle(0,position,0,0,randR) , particles));
             double randV = modelParams.v_min + rand.nextDouble()*(modelParams.v_max - modelParams.v_min);
-            particles.add(new Particle(position,randV,modelParams.mass,randR));
+            particles.add(new Particle(id,position,randV,modelParams.mass,randR));
+            id++;
         }
     }
 
